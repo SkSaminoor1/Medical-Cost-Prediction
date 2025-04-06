@@ -1,0 +1,13 @@
+name: Run Medical Cost Prediction
+on: [push, workflow_dispatch]  # Runs on push or manual trigger
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4  # Downloads your code
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.7'  # Uses Python 3.7
+      - run: pip install -r requirements.txt  # Installs dependencies
+      - run: python main.py  # Runs your script (replace 'main.py' if needed)
